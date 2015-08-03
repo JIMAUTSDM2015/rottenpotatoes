@@ -1,15 +1,24 @@
 -# in app/views/movies/new.html.haml
-%h1 Create New Movie
-
+%ol.breadcrumb
+  %il
+    =link_to 'All Movies ', movies_path
+  %li.divider /
+  %li.active New Movie
 = form_tag movies_path, :method => :post do
-
-  = label :movie, :title, 'Title'
-  = text_field :movie, :title
-
-  = label :movie, :rating, 'Rating'
-  = select :movie, :rating, ['G','PG','PG-13','R','NC-17']
-
-  = label :movie, :release_date, 'Released On'
-  = date_select :movie, :release_date
-
-  = submit_tag 'Save Changes'
+  .form-group
+    = text_field :movie, :title, :class => "form-control ", :placeholder => "Title"
+  .form-group
+    = label :movie, :rating, 'Rating'
+    = select :movie, :rating, ['G','PG','PG-13','R','NC-17']
+  .form-group
+    = label :movie, :release_date, 'Released On'
+    .form-control
+      = date_select(:movie, :release_date, order: [:day, :month, :year])
+  .form-group
+    =text_area :movie, :description,
+      :rows => 5,
+      :class => "form-control",
+      :style => 'width:350px',
+      :placeholder => "Give a description"
+  .form-group
+    = submit_tag 'Save Changes', :class => "btn btn-primary btn-large"

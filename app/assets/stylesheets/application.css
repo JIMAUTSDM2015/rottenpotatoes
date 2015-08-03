@@ -1,5 +1,31 @@
-/* Simple CSS styling for RottenPotatoes app */
+/* Simple CSS styling for RottenPotatoes app
+	*= require_self
+	*= require_tree
+ */
+/*rest the top bar to the top of the browser*/
 
+body{
+	margin-top:0;
+}
+
+.header{
+	margin-top:0;
+	background-color: #4f81bd;
+	padding-left:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+	text-align:left;
+	color:#FFFFFF;
+}
+/*set box margin of the whole page */
+
+#main{
+	margin-left:10px;
+	marhin-right:10px
+}
+
+
+/* OLD STUFF
 html, body {
   margin: 0;
   padding: 0;
@@ -61,3 +87,4 @@ form label {
   font-weight: bold;
   color: maroon;
 }
+*/

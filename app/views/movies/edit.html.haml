@@ -1,15 +1,25 @@
 -# in app/views/movies/edit.html.haml
-%h1 Edit Movie
+%ol.breadcrumb
+  %li
+    = link_to 'All Movies ', movies_path
+  %li.divider  /
+  %li
+    =link_to 'Movie Details', movie_path(@movie)
+  %li.divider
+  %li.active Editing
+
 
 = form_tag movie_path(@movie), :method => :put do
-
-  = label :movie, :title, 'Title'
   = text_field :movie, 'title'
-
   = label :movie, :rating, 'Rating'
   = select :movie, :rating, ['G','PG','PG-13','R','NC-17']
-
   = label :movie, :release_date, 'Released On'
-  = date_select :movie, :release_date
-
-  = submit_tag 'Save Changes'
+  = date_select(:movie,:release_date, order: [:day, :month, :year])
+  .form-group
+    =text_area :movie, :description,
+      :rows => 5,
+      :class => "form-control",
+      :style => 'width:350px'
+  .form-group
+    = submit_tag 'Save Changes',
+    :class =>"btn btn-success btn-large"
